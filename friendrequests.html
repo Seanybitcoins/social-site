@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <title>Friend Requests</title>
+        <link rel="stylesheet" href="newnew.css">
+        <style>
+
+
+            .friend-request {
+                background-color: #da1d1d;
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            .friend-request-profile-photo {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                float: left;
+            }
+            .friend-request-info {
+                margin-left: 60px;
+            }
+            .friend-request-name {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .friend-request-message {
+                font-size: 14px;
+                color: #888;
+            }
+            .friend-request-actions {
+                margin-top: 10px;
+            }
+            .friend-request-action {
+                background-color: #4caf50;
+                color: #fff;
+                border: none;
+                padding: 5px 10px;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            .friend-request-action:hover {
+                background-color: #47a247;
+            }
+            .friend-request-action.reject {
+                background-color: #f44336;
+            }
+            .friend-request-action.reject:hover {
+                background-color: #da190b;
+            }
+          </style>
+        </head>
+        <body>
+            <h1>Friend Requests</h1>
+            <p>Here are your recent friend requests:</p>
+            <ul>
+                <li>
+                    <img src="https://www.pexels.com/photo/adult-bicycle-biking-blur-461077/" alt="Profile picture of John Smith"><ref class name="width"(50px)
+                    <p>John Smith</p>
+                    <button onclick="acceptFriend()">Accept</button>
+                    <button onclick="declineFriend()">Decline</button>
+                </li>
+                <li>
+                    <img src="https://www.pexels.com/photo/woman-riding-a-road-bike-on-a-road-during-daytime-396460/" alt="Profile picture of Jane Doe">
+                    <p>Jane Doe</p>
+                    <button onclick="acceptFriend()">Accept</button>
+                    <button onclick="declineFriend()">Decline</button>
+                </li>
+                <li>
+                    <img src="https://www.pexels.com/photo/man-riding-a-mountain-bike-on-a-trail-312037/" alt="Profile picture of mike Smith">
+                    <p>John Smith</p>
+                    <button onclick="acceptFriend()">Accept</button>
+                    <button onclick="declineFriend()">Decline</button>
+                </li>
+                <html>
+                    <head>
+                        <title>Friend Requests</title>
+                        <style>
+                            <html>
+                                <head>
+                                    <title>Friend Requests</title>
+                                    <style>
+                                        /* Add your CSS styles here */
+                                        .friend-request {
+                                            background-color: #f4f4f4;
+                                            border: 1px solid #ccc;
+                                            padding: 10px;
+                                            margin-bottom: 10px;
+                                        }
+                                        .friend-request-profile-photo {
+                                            width: 50px;
+                                            height: 50px;
+                                            border-radius: 50%;
+                                            float: left;
+                                        }
+                                        .friend-request-info {
+                                            margin-left: 60px;
+                                        }
+                                        .friend-request-name {
+                                            font-size: 16px;
+                                            font-weight: bold;
+                                        }
+                                        .friend-request-message {
+                                            font-size: 14px;
+                                            color: #888;
+                                        }
+                                        .friend-request-actions {
+                                            margin-top: 10px;
+                                        }
+                                        .friend-request-action {
+                                            background-color: #4caf50;
+                                            color: #fff;
+                                            border: none;
+                                            padding: 5px 10px;
+                                            font-size: 14px;
+                                            cursor: pointer;
+                                        }
+                                        .friend-request-action:hover {
+                                            background-color: #47a247;
+                                        }
+                                        .friend-request-action.reject {
+                                            background-color: #f44336;
+                                        }
+                                        .friend-request-action.reject:hover {
+                                            background-color: #da190b;
+                                        }
+                                    </style>
+                                </head>
+                                <body>
+                                    <h1>Friend Requests</h1>
+                                    <div
+                                        id="friend-requests"><!-- Friend requests will be inserted here -->
+                                    </div>
+                                    <script>
+                                        // Helper function to create a friend request element
+                                              function createFriendRequestElement(id, name, message) {
+                                                const friendRequest = document.createElement('div');
+                                                friendRequest.classList.add('friend-request');
+                                                friendRequest.innerHTML = 
+                                                  `
+                                                  <img class="friend-request-profile-photo" src="profile${id}.jpg" alt="Profile picture of ${name}">
+                                                  <div class="friend-request-info">
+                                                    <p class="friend-request-name">${name}</p>
+                                                    <p class="friend-request-message">${message}</p>
+                                                  </div>
+                                                  <div class="friend-request-actions">
+                                                    <button class="friend-request-action" onclick="acceptFriendRequest(${id})">Accept</button>
+                                                    <button class="friend-request-action reject" onclick="declineFriendRequest(${id})">Decline</button>
+                                                  </div>
+                                                  `;
+                                                return friendRequest;
+                                              }
+                                              
+                                              function acceptFriendRequest(friendId) {
+                                                // Send HTTP request to server to accept the friend request and add the friend to the user's list of friends
+                                                fetch('/api/accept-friend-request', {
+                                                  method: 'POST',
+                                              body: JSON.stringify({ friendId }),
+                                              headers: {
+                                                'Content-Type': 'application/json'
+                                              }
+                                            })
